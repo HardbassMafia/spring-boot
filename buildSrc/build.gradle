@@ -5,7 +5,10 @@ plugins {
 }
 
 repositories {
+	maven { url 'https://repo1.maven.org/maven2/' }
 	mavenCentral()
+	maven { url 'https://maven.aliyun.com/repository/central' }
+	maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
 	gradlePluginPortal()
 	maven { url "https://repo.spring.io/release" }
 }
@@ -34,6 +37,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:${kotlinVersion}")
 	implementation("org.springframework:spring-core")
 	implementation("org.springframework:spring-web")
+	runtimeOnly("io.netty:netty-resolver-dns-native-macos")
+	implementation("io.netty:netty-all:4.1.82.Final")
 	implementation("io.spring.javaformat:spring-javaformat-gradle-plugin:${javaFormatVersion}")
 	testImplementation("org.assertj:assertj-core:3.11.1")
 	testImplementation("org.apache.logging.log4j:log4j-core:2.17.1")
